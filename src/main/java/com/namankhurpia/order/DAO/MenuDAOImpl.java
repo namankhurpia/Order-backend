@@ -22,13 +22,21 @@ public class MenuDAOImpl implements MenuDAO{
 	@Override
 	public Menu save(Menu itemobj) {
 		return menurepo.save(itemobj);
-		
 	}
 
 	@Override
 	public void delete(Menu itemobj) {
 		menurepo.delete(itemobj);
-		
+	}
+
+	@Override
+	public List<String> getAllCuisineFromRestoid(int restoid) {
+		return menurepo.GetAllCuisinebyRestoId(restoid);
+	}
+
+	@Override
+	public List<Menu> getMenuItemsbyRestoIdAndCuisine(int restoid, String cuisinename) {
+		return menurepo.GetMenuItemsbyRestoIdAndCuisine(restoid, cuisinename);
 	}
 
 }

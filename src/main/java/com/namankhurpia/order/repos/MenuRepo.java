@@ -13,5 +13,11 @@ public interface MenuRepo  extends JpaRepository<Menu, Integer>  {
 	
 	@Query(value = "SELECT * FROM menudetails m WHERE m.dishbelongresto = ?1", nativeQuery = true)
 	List<Menu> findRestrauntMenuItemfromRestoID (int restoid);
+	
+	@Query(value ="SELECT DISTINCT dishcuisine FROM menudetails m WHERE m.dishbelongresto = ?1",nativeQuery = true)
+	List<String> GetAllCuisinebyRestoId (int restoid);
+	
+	@Query(value = "SELECT * FROM menudetails m WHERE m.dishbelongresto = ?1 and m.dishcuisine = ?2", nativeQuery = true)
+	List<Menu> GetMenuItemsbyRestoIdAndCuisine (int restoid, String dishcuisine);
 
 }

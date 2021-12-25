@@ -28,6 +28,17 @@ public class MenuController {
 		return menuservice.getall(restoid);
 	}
 	
+	@GetMapping("/menu/allcuisine/{restoid}")
+	public List<String> getRestrauntMenuCusine(@PathVariable int restoid){	
+		return menuservice.getAllCuisineFromRestoid(restoid);
+	}
+	
+	@GetMapping("/menu/{restoid}/{cuisinename}")
+	public List<Menu> getAllItemsInCuisineFromCuisineNameAndRestoId (@PathVariable int restoid, @PathVariable String cuisinename)
+	{
+		return menuservice.getMenuItemsbyRestoIdAndCuisine(restoid, cuisinename);
+	}
+	
 	@PostMapping("/menu")
 	public Menu Save(@RequestBody Menu menu)
 	{

@@ -32,5 +32,17 @@ public class MenuServiceImpl implements MenuService{
 	public void delete(Menu itemobj) {
 		daoobj.delete(itemobj);
 	}
+
+	@Transactional
+	@Override
+	public List<String> getAllCuisineFromRestoid(int restoid) {
+		return daoobj.getAllCuisineFromRestoid(restoid);
+	}
+
+	@Transactional
+	@Override
+	public List<Menu> getMenuItemsbyRestoIdAndCuisine(int restoid, String cuisinename) {
+		return daoobj.getMenuItemsbyRestoIdAndCuisine(restoid, cuisinename);
+	}
 	
 }
