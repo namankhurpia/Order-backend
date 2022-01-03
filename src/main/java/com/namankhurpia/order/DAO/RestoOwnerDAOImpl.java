@@ -3,7 +3,6 @@ package com.namankhurpia.order.DAO;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
 import com.namankhurpia.order.model.RestoOwner;
@@ -33,6 +32,11 @@ public class RestoOwnerDAOImpl implements RestoOwnerDAO {
 	@Override
 	public List<RestoOwner> getall() {
 		return restorepo.findAll();
+	}
+
+	@Override
+	public int findRestoownerIdFromEmail(String email) {
+		return restorepo.findRestoownerIdFromEmail(email);
 	}
 
 	

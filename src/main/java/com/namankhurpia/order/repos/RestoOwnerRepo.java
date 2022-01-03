@@ -11,5 +11,8 @@ public interface RestoOwnerRepo extends JpaRepository<RestoOwner, Integer>  {
 	
 	@Query(value = "SELECT * FROM restoowner r WHERE r.restoid = ?1", nativeQuery = true)
 	RestoOwner findOnerestoDetails(int restoid);
+	
+	@Query(value = "SELECT restoid FROM restoowner r WHERE r.email = ?1", nativeQuery = true)
+	int findRestoownerIdFromEmail(String email);
 
 }

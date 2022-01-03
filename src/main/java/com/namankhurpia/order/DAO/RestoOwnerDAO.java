@@ -13,5 +13,7 @@ public interface RestoOwnerDAO {
 	RestoOwner save(RestoOwner restoowner_obj);
 	
 	void delete(RestoOwner restoowner_obj);
+	
+	int findRestoownerIdFromEmail(String email); 
 
 }
