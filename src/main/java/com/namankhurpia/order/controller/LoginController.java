@@ -20,9 +20,9 @@ public class LoginController {
 	
 	
 	@PostMapping("/loginverify")
-	public boolean VerifyLogin(@RequestBody String email, @RequestBody String Checksum) throws NoSuchAlgorithmException
+	public boolean VerifyLogin(@RequestBody String email, @RequestBody String checksum) throws NoSuchAlgorithmException
 	{
-		return (restoownerservice.VerifyLogin(email).equalsIgnoreCase(Checksum))? true:false;
+		return (restoownerservice.VerifyLogin(email).equalsIgnoreCase(checksum))? true:false;
 	}
 
 }
