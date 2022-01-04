@@ -53,13 +53,15 @@ public class RestoOwnerServiceImpl implements RestoOwnerService {
 		String textToEncrypt = restoid+ dtf.format(now) + email;
 		
 		String textAfterEncyrption =  aesobj.encrypt(textToEncrypt);
-		String textToMatchChecksum = ((textAfterEncyrption.charAt(220)==' ')? (textAfterEncyrption.charAt(220)+""):"N")
-				+((textAfterEncyrption.charAt(220)==' ')? (textAfterEncyrption.charAt(220)+""):"N")
-				+((textAfterEncyrption.charAt(220)==' ')? (textAfterEncyrption.charAt(220)+""):"N")
-				+((textAfterEncyrption.charAt(220)==' ')? (textAfterEncyrption.charAt(220)+""):"N")
-				+((textAfterEncyrption.charAt(220)==' ')? (textAfterEncyrption.charAt(220)+""):"N")
-				+((textAfterEncyrption.charAt(220)==' ')? (textAfterEncyrption.charAt(220)+""):"N")
-				+((textAfterEncyrption.charAt(220)==' ')? (textAfterEncyrption.charAt(220)+""):"N");
+		
+		String firstbit = (textAfterEncyrption.substring(0,1)==null) ? textAfterEncyrption.substring(0,1):"N" ;
+		String secondbit = (textAfterEncyrption.substring(7,8)==null) ? textAfterEncyrption.substring(7,8):"N" ;
+		String thirdbit = (textAfterEncyrption.substring(12,13)==null) ? textAfterEncyrption.substring(12,13):"N" ;
+		String fourthbit = (textAfterEncyrption.substring(14,15)==null) ? textAfterEncyrption.substring(14,15):"N" ;
+		String fifthbit = (textAfterEncyrption.substring(18,19)==null) ? textAfterEncyrption.substring(18,19):"N" ;
+		String sixthbit = (textAfterEncyrption.substring(20,21)==null) ? textAfterEncyrption.substring(20,21):"N" ;
+		
+		String textToMatchChecksum = firstbit+secondbit+thirdbit+fourthbit+fifthbit+sixthbit;
 		
 				
 		if(textToMatchChecksum.length()==6)
