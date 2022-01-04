@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.namankhurpia.order.model.RestoOwner;
+import com.namankhurpia.order.model.Login;
 import com.namankhurpia.order.service.RestoOwnerService;
 
 @CrossOrigin(origins = "*", allowedHeaders = "*")
@@ -20,9 +20,9 @@ public class LoginController {
 	
 	
 	@PostMapping("/loginverify")
-	public boolean VerifyLogin(@RequestBody String email, @RequestBody String checksum) throws NoSuchAlgorithmException
+	public boolean VerifyLogin(@RequestBody Login loginobj) throws NoSuchAlgorithmException
 	{
-		return (restoownerservice.VerifyLogin(email).equalsIgnoreCase(checksum))? true:false;
+		return (restoownerservice.VerifyLogin(loginobj.getEmail().trim()).equalsIgnoreCase(loginobj.getChecksum().trim()))? true:false;
 	}
 
 }

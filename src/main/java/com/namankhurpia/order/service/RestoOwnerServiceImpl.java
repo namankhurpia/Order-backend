@@ -47,26 +47,37 @@ public class RestoOwnerServiceImpl implements RestoOwnerService {
 
 	@Override
 	public String VerifyLogin(String email) throws NoSuchAlgorithmException {
-		int restoid = restoownerdao.findRestoownerIdFromEmail(email);
-		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");  
+		
+		System.out.println("Finding resto id from email:"+email);
+		
+		String restoid = restoownerdao.findRestoownerIdFromEmail(email);
+		
+		System.out.println("result from repo:" +restoid);
+		
+		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd");  
 		LocalDateTime now = LocalDateTime.now();  
 		String textToEncrypt = restoid+ dtf.format(now) + email;
 		
+		System.out.println("text before encryption is: "+textToEncrypt);
+		
 		String textAfterEncyrption =  aesobj.encrypt(textToEncrypt);
 		
-		String firstbit = (textAfterEncyrption.substring(0,1)==null) ? textAfterEncyrption.substring(0,1):"N" ;
-		String secondbit = (textAfterEncyrption.substring(7,8)==null) ? textAfterEncyrption.substring(7,8):"N" ;
-		String thirdbit = (textAfterEncyrption.substring(12,13)==null) ? textAfterEncyrption.substring(12,13):"N" ;
-		String fourthbit = (textAfterEncyrption.substring(14,15)==null) ? textAfterEncyrption.substring(14,15):"N" ;
-		String fifthbit = (textAfterEncyrption.substring(18,19)==null) ? textAfterEncyrption.substring(18,19):"N" ;
-		String sixthbit = (textAfterEncyrption.substring(20,21)==null) ? textAfterEncyrption.substring(20,21):"N" ;
+		System.out.println("text after encryption is: "+textAfterEncyrption);
+		
+		String firstbit = (textAfterEncyrption.substring(0,1)!=null) ? textAfterEncyrption.substring(0,1):"N" ;
+		String secondbit = (textAfterEncyrption.substring(7,8)!=null) ? textAfterEncyrption.substring(7,8):"N" ;
+		String thirdbit = (textAfterEncyrption.substring(12,13)!=null) ? textAfterEncyrption.substring(12,13):"N" ;
+		String fourthbit = (textAfterEncyrption.substring(14,15)!=null) ? textAfterEncyrption.substring(14,15):"N" ;
+		String fifthbit = (textAfterEncyrption.substring(18,19)!=null) ? textAfterEncyrption.substring(18,19):"N" ;
+		String sixthbit = (textAfterEncyrption.substring(20,21)!=null) ? textAfterEncyrption.substring(20,21):"N" ;
 		
 		String textToMatchChecksum = firstbit+secondbit+thirdbit+fourthbit+fifthbit+sixthbit;
 		
+		System.out.println("the checksum is: "+textToMatchChecksum.toUpperCase());
 				
 		if(textToMatchChecksum.length()==6)
 		{
-			return textToMatchChecksum;
+			return textToMatchChecksum.toUpperCase();
 		}
 		else
 		{

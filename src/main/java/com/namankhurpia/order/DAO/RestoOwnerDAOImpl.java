@@ -35,7 +35,7 @@ public class RestoOwnerDAOImpl implements RestoOwnerDAO {
 	}
 
 	@Override
-	public int findRestoownerIdFromEmail(String email) {
+	public String findRestoownerIdFromEmail(String email) {
 		return restorepo.findRestoownerIdFromEmail(email);
 	}
 

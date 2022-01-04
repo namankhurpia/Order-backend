@@ -13,6 +13,6 @@ public interface RestoOwnerRepo extends JpaRepository<RestoOwner, Integer>  {
 	RestoOwner findOnerestoDetails(int restoid);
 	
 	@Query(value = "SELECT restoid FROM restoowner r WHERE r.email = ?1", nativeQuery = true)
-	int findRestoownerIdFromEmail(String email);
+	String findRestoownerIdFromEmail(String email);
 
 }

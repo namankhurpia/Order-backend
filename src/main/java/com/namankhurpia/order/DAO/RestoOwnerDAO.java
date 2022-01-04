@@ -14,6 +14,6 @@ public interface RestoOwnerDAO {
 	
 	void delete(RestoOwner restoowner_obj);
 	
-	int findRestoownerIdFromEmail(String email); 
+	String findRestoownerIdFromEmail(String email); 
 
 }
