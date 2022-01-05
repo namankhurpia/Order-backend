@@ -10,6 +10,6 @@ public interface TransactionDAO {
 	
 	Transaction addorUpdateAnewtransaction(Transaction transaction_obj);
 	
-	
+	List<Transaction> getTxnForRestoUsingRestoIDAndDate_today (int restoid, String date);
 	
 }

@@ -1,5 +1,7 @@
 package com.namankhurpia.order.service;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +27,15 @@ public class TransactionServiceImpl implements TransactionService{
 	@Override
 	public Transaction addorupdate(Transaction transaction_obj) {
 		return transactiondao.addorUpdateAnewtransaction(transaction_obj);
+	}
+
+	@Override
+	public List<Transaction> getTxnForRestoUsingRestoIDAndDate_today(int restoid) {
+		
+		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd");  
+		LocalDateTime now = LocalDateTime.now();  
+		return transactiondao.getTxnForRestoUsingRestoIDAndDate_today(restoid, dtf.format(now));
+		
 	}
 
 

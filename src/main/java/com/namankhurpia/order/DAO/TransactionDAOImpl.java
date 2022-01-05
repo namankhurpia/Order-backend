@@ -25,6 +25,11 @@ public class TransactionDAOImpl implements TransactionDAO {
 		return txnrepo.save(transaction_obj);
 	}
 
+	@Override
+	public List<Transaction> getTxnForRestoUsingRestoIDAndDate_today(int restoid, String date) {
+		return txnrepo.getTxnForRestoUsingRestoIDAndDate(restoid, date);
+	}
+
 
 
 }

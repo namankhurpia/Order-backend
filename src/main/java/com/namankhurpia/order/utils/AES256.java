@@ -15,7 +15,7 @@ public class AES256 {private static final String SECRET_KEY = "m_key_to_happines
 
 private static final String SALT = "shhhuuu,this is salt";
 
-public static String encrypt(String strToEncrypt) {
+public String encrypt(String strToEncrypt) {
   try {
     byte[] iv = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
     IvParameterSpec ivspec = new IvParameterSpec(iv);
@@ -35,7 +35,7 @@ public static String encrypt(String strToEncrypt) {
   return null;
 }
 
-public static String decrypt(String strToDecrypt) {
+public String decrypt(String strToDecrypt) {
 	
 	    try {
 	      byte[] iv = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};

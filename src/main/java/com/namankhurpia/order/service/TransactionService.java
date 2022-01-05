@@ -10,5 +10,6 @@ public interface TransactionService {
 	
 	Transaction addorupdate(Transaction transaction_obj);
 
+	List<Transaction> getTxnForRestoUsingRestoIDAndDate_today (int restoid);
 	
 }

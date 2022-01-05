@@ -14,5 +14,7 @@ public interface TransactionRepo extends JpaRepository<Transaction , Integer>  {
 	@Query(value = "SELECT * FROM trans t WHERE t.restoid = ?1", nativeQuery = true)
 	List<Transaction> getforresto(int restoid);
 	
+	@Query(value = "SELECT * FROM trans t WHERE t.restoid = ?1 AND DATE(timestamporder) = ?2 ORDER BY TIME(timestamporder) DESC", nativeQuery = true)
+	List<Transaction> getTxnForRestoUsingRestoIDAndDate (int restoid, String date);
 	
 }
