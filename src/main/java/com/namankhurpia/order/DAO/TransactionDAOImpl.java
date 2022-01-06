@@ -30,6 +30,16 @@ public class TransactionDAOImpl implements TransactionDAO {
 		return txnrepo.getTxnForRestoUsingRestoIDAndDate(restoid, date);
 	}
 
+	@Override
+	public String getTodaysEarningUsingRestoID(int restoid, String date) {
+		return txnrepo.getTodaysEarningUsingRestoID(restoid, date);
+	}
+
+	@Override
+	public String getMonthsEarningUsingRestoID(int restoid, String month, String year) {
+		return txnrepo.getMonthsEarningUsingRestoID(restoid, month, year);
+	}
+
 
 
 }

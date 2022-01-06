@@ -30,13 +30,6 @@ public class TransactionController {
 		return list;
 	}
 	
-	@GetMapping("/gettodaystxn/{restoid}")
-	public List<Transaction> getTodaysTxnForRestoUsingRestoID (@PathVariable int restoid)
-	{
-		return transactionservice.getTxnForRestoUsingRestoIDAndDate_today(restoid);
-	}
-	
-	
 	@PostMapping("/transaction")
 	public Transaction addorupdateanewtransaction (@RequestBody Transaction transaction_obj)
 	{

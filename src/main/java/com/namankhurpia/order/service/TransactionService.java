@@ -12,4 +12,8 @@ public interface TransactionService {
 
 	List<Transaction> getTxnForRestoUsingRestoIDAndDate_today (int restoid);
 	
+	String getTodaysEarningUsingRestoID (int restoid);
+	
+	String getMonthsEarningUsingRestoID (int restoid);
+	
 }

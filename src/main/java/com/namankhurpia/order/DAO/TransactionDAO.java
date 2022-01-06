@@ -12,4 +12,8 @@ public interface TransactionDAO {
 	
 	List<Transaction> getTxnForRestoUsingRestoIDAndDate_today (int restoid, String date);
 	
+	String getTodaysEarningUsingRestoID (int restoid, String date);
+	
+	String getMonthsEarningUsingRestoID (int restoid, String month, String year);
+	
 }

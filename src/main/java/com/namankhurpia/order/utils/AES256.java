@@ -11,9 +11,11 @@ import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.PBEKeySpec;
 import javax.crypto.spec.SecretKeySpec;
 
-public class AES256 {private static final String SECRET_KEY = "m_key_to_happines_key_ho_ho_ho";
+public class AES256 {
+	
+	private static final String SECRET_KEY = "m_key_to_happines_key_ho_ho_ho";
 
-private static final String SALT = "shhhuuu,this is salt";
+	private static final String SALT = "shhhuuu,this is salt";
 
 public String encrypt(String strToEncrypt) {
   try {

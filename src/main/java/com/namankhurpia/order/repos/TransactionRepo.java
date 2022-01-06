@@ -11,10 +11,21 @@ import com.namankhurpia.order.model.Transaction;
 @Repository
 public interface TransactionRepo extends JpaRepository<Transaction , Integer>  {
 
-	@Query(value = "SELECT * FROM trans t WHERE t.restoid = ?1", nativeQuery = true)
+	//get all resto orders - arranged chronologically
+	@Query(value = "SELECT * FROM trans t WHERE t.restoid = ?1 ORDER BY TIME(timestamporder) DESC", nativeQuery = true)
 	List<Transaction> getforresto(int restoid);
 	
+	//get txn usig restoid and date - arranged chronologically
 	@Query(value = "SELECT * FROM trans t WHERE t.restoid = ?1 AND DATE(timestamporder) = ?2 ORDER BY TIME(timestamporder) DESC", nativeQuery = true)
 	List<Transaction> getTxnForRestoUsingRestoIDAndDate (int restoid, String date);
 	
+	
+	//Today's earning
+	@Query(value = "SELECT SUM(amount) FROM trans t WHERE t.restoid = ?1 and DATE(t.timestamporder) = ?2", nativeQuery = true)
+	String getTodaysEarningUsingRestoID(int restoid,String date);
+	
+	
+	//Month's earning
+	@Query(value = "SELECT SUM(amount) FROM trans t WHERE t.restoid = ?1 and MONTH(t.timestamporder) = ?2 and YEAR(t.timestamporder) = ?3", nativeQuery = true)
+	String getMonthsEarningUsingRestoID(int restoid,String month, String year);
 }

@@ -10,12 +10,16 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.namankhurpia.order.DAO.TransactionDAO;
 import com.namankhurpia.order.model.Transaction;
+import com.namankhurpia.order.utils.DateTime;
 
 @Service
 public class TransactionServiceImpl implements TransactionService{
 	
 	@Autowired
 	private TransactionDAO transactiondao;
+	
+	@Autowired
+	private DateTime dt;
 
 	@Transactional
 	@Override
@@ -31,11 +35,17 @@ public class TransactionServiceImpl implements TransactionService{
 
 	@Override
 	public List<Transaction> getTxnForRestoUsingRestoIDAndDate_today(int restoid) {
-		
-		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd");  
-		LocalDateTime now = LocalDateTime.now();  
-		return transactiondao.getTxnForRestoUsingRestoIDAndDate_today(restoid, dtf.format(now));
-		
+		return transactiondao.getTxnForRestoUsingRestoIDAndDate_today(restoid,dt.getTodaysDateMonthYear());
+	}
+
+	@Override
+	public String getTodaysEarningUsingRestoID(int restoid) {
+		return transactiondao.getTodaysEarningUsingRestoID(restoid, dt.getTodaysDateMonthYear());
+	}
+
+	@Override
+	public String getMonthsEarningUsingRestoID(int restoid) {
+		return transactiondao.getMonthsEarningUsingRestoID(restoid, dt.getTodaysMonth(), dt.getTodaysYear());
 	}
 
 
