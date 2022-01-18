@@ -147,6 +147,13 @@ public class RestoOwner {
 	public void setRestologourl(String restologourl) {
 		this.restologourl = restologourl;
 	}
+
+	@Override
+	public String toString() {
+		return "RestoOwner [restoid=" + restoid + ", username=" + username + ", nameofresto=" + nameofresto
+				+ ", address=" + address + ", gps=" + gps + ", phoneno=" + phoneno + ", email=" + email
+				+ ", restonooftable=" + restonooftable + ", restologourl=" + restologourl + "]";
+	}
 	
 	
 

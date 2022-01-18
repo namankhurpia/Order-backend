@@ -5,7 +5,7 @@ import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
-public class SHA256 {
+public class SHA256_nouse {
 	
 	public static byte[] hashString(String input) throws NoSuchAlgorithmException
 	{

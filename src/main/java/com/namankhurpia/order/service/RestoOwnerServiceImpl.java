@@ -12,13 +12,18 @@ import org.springframework.transaction.annotation.Transactional;
 import com.namankhurpia.order.DAO.RestoOwnerDAO;
 import com.namankhurpia.order.model.RestoOwner;
 import com.namankhurpia.order.utils.AES256;
+import com.namankhurpia.order.utils.Validators;
 
 @Service
 public class RestoOwnerServiceImpl implements RestoOwnerService {
 	
 	@Autowired
 	private RestoOwnerDAO restoownerdao;
+	
 	private AES256 aesobj;
+	
+	@Autowired
+	private Validators validators;
 
 	@Transactional
 	@Override
@@ -29,7 +34,40 @@ public class RestoOwnerServiceImpl implements RestoOwnerService {
 	@Transactional
 	@Override
 	public RestoOwner save(RestoOwner restoowner_obj) {
-		return restoownerdao.save(restoowner_obj);
+		if(!validators.is_valid_email(restoowner_obj))
+		{
+			 System.out.println("VALIDATOR LOG - used email" + restoowner_obj.toString());
+			 empty_up_the_object(restoowner_obj);
+			 restoowner_obj.setEmail("USED EMAIL!");
+			 return restoowner_obj;
+		}
+		else if(!validators.is_valid_phone(restoowner_obj))
+		{
+			System.out.println("VALIDATOR LOG - used phone" + restoowner_obj.toString());
+			empty_up_the_object(restoowner_obj);
+			restoowner_obj.setPhoneno("USED PHONE NUMBER!");
+			return restoowner_obj;
+		}
+		else
+		{
+			return restoownerdao.save(restoowner_obj);
+		}
+		
+	}
+	
+	public void empty_up_the_object(RestoOwner restoowner_obj)
+	{
+		restoowner_obj.setAddress(null);
+		restoowner_obj.setEmail(null);
+		restoowner_obj.setGps(null);
+		restoowner_obj.setNameofresto(null);
+		restoowner_obj.setPhoneno(null);
+		restoowner_obj.setRestoid(0);
+		restoowner_obj.setRestologourl(null);
+		restoowner_obj.setRestonooftable(0);
+		restoowner_obj.setUsername(null);
+		
+		
 	}
 
 
