@@ -47,6 +47,12 @@ public class RestoOwnerController {
 
 	}
 	
+	@PostMapping("/checkifuserexists")
+	public RestoOwner checkIfUserExists(@RequestBody RestoOwner restoowner_obj)
+	{
+		return restoownerservice.checkIfUserExists(restoowner_obj);
+	}
+	
 	@PostMapping("/restoowner")
 	public RestoOwner save(@RequestBody RestoOwner restoowner_obj)
 	{

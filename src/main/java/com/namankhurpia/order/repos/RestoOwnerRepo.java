@@ -20,5 +20,10 @@ public interface RestoOwnerRepo extends JpaRepository<RestoOwner, Integer>  {
 	
 	@Query(value = "select COUNT(email) from restoowner r where r.email = ?1", nativeQuery = true)
 	int is_valid_email(String email);
+	
+	@Query(value = "select * FROM restoowner r where r.email = ?1", nativeQuery = true)
+	RestoOwner GetUserFromEmail(String email);
 
+	@Query(value = "select COUNT(email) FROM restoowner r where r.email = ?1", nativeQuery = true)
+	int CheckIfUserExistsUsingEmail(String email);
 }

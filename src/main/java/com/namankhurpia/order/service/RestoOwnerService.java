@@ -16,5 +16,7 @@ public interface RestoOwnerService {
 	void delete(RestoOwner restoowner_obj);
 	
 	String VerifyLogin(String email) throws NoSuchAlgorithmException;
+	
+	RestoOwner checkIfUserExists(RestoOwner restoowner_obj);
 
 }

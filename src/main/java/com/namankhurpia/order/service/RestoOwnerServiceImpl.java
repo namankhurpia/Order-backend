@@ -123,4 +123,20 @@ public class RestoOwnerServiceImpl implements RestoOwnerService {
 		}
 	}
 
+	@Override
+	public RestoOwner checkIfUserExists(RestoOwner restoowner_obj) {
+		if(validators.CheckIfUserExistsUsingEmail(restoowner_obj))
+		{
+			//yes user exists
+			return validators.getUserFromEmail(restoowner_obj);
+		}
+		else
+		{
+			//user not exists - create user
+			empty_up_the_object(restoowner_obj);
+			restoowner_obj.setEmail("USER DOES NOT EXIST");
+			return restoowner_obj;
+		}
+	}
+
 }
