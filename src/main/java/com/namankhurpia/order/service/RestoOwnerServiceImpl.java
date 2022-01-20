@@ -20,6 +20,7 @@ public class RestoOwnerServiceImpl implements RestoOwnerService {
 	@Autowired
 	private RestoOwnerDAO restoownerdao;
 	
+	@Autowired
 	private AES256 aesobj;
 	
 	@Autowired

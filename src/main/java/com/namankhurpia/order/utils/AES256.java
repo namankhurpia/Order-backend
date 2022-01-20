@@ -11,6 +11,8 @@ import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.PBEKeySpec;
 import javax.crypto.spec.SecretKeySpec;
 
+import org.springframework.stereotype.Service;
+@Service
 public class AES256 {
 	
 	private static final String SECRET_KEY = "m_key_to_happines_key_ho_ho_ho";
