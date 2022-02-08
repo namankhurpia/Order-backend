@@ -1,7 +1,5 @@
 package com.namankhurpia.order.service;
 
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,6 +44,11 @@ public class TransactionServiceImpl implements TransactionService{
 	@Override
 	public String getMonthsEarningUsingRestoID(int restoid) {
 		return transactiondao.getMonthsEarningUsingRestoID(restoid, dt.getTodaysMonth(), dt.getTodaysYear());
+	}
+
+	@Override
+	public List<Transaction> GetTxnForRestoUsingRestoIdAndStartDateAndEndDate(int restoid, String startdate,String enddate) {
+		return transactiondao.GetTxnForRestoUsingRestoIdAndStartDateAndEndDate(restoid, startdate, enddate);
 	}
 
 

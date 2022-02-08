@@ -2,6 +2,7 @@ package com.namankhurpia.order.controller;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.namankhurpia.order.DAO.FilterClass;
+import com.namankhurpia.order.constants.OrderConstants;
 import com.namankhurpia.order.model.Transaction;
 import com.namankhurpia.order.service.TransactionService;
 
@@ -43,6 +46,18 @@ public class TransactionController {
 	public Transaction update(@RequestBody Transaction transaction_obj)
 	{
 		return transactionservice.addorupdate(transaction_obj);
+	}
+	
+	@PostMapping("/srchtxn")
+	public List<Transaction> FilterTxn (@RequestBody FilterClass filter)
+	{
+		if(OrderConstants.nothing.equalsIgnoreCase(filter.getStartdate()) || OrderConstants.nothing.equalsIgnoreCase(filter.getEnddate()) || OrderConstants.ZERO==filter.getRestoid())
+		{
+			List<Transaction> list = new ArrayList<Transaction>();
+			list.add(new Transaction(0,"",0,0,"","", 0,"","PLEASE ENTER STARTDATE OR END DATE",""));
+			return list;
+		}
+		return transactionservice.GetTxnForRestoUsingRestoIdAndStartDateAndEndDate(filter.getRestoid(), filter.getStartdate(), filter.getEnddate());
 	}
 	
 	
