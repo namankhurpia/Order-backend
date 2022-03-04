@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.namankhurpia.order.DAO.FilterClass;
 import com.namankhurpia.order.constants.OrderConstants;
-import com.namankhurpia.order.model.Transaction;
+import com.namankhurpia.order.model.txn.Transaction;
 import com.namankhurpia.order.service.TransactionService;
 
 @CrossOrigin(origins = "*", allowedHeaders = "*")

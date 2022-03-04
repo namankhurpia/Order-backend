@@ -3,7 +3,7 @@ package com.namankhurpia.order.service;
 import java.security.NoSuchAlgorithmException;
 import java.util.List;
 
-import com.namankhurpia.order.model.RestoOwner;
+import com.namankhurpia.order.model.txn.RestoOwner;
 
 public interface RestoOwnerService {
 

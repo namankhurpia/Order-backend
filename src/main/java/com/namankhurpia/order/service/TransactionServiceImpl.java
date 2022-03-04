@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.namankhurpia.order.DAO.TransactionDAO;
-import com.namankhurpia.order.model.Transaction;
+import com.namankhurpia.order.model.txn.Transaction;
 import com.namankhurpia.order.utils.DateTime;
 
 @Service

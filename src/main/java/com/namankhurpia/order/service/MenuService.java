@@ -2,7 +2,7 @@ package com.namankhurpia.order.service;
 
 import java.util.List;
 
-import com.namankhurpia.order.model.Menu;
+import com.namankhurpia.order.model.txn.Menu;
 
 public interface MenuService {
 	

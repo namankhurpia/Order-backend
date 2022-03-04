@@ -2,7 +2,7 @@ package com.namankhurpia.order.DAO;
 
 import java.util.List;
 
-import com.namankhurpia.order.model.RestoOwner;
+import com.namankhurpia.order.model.txn.RestoOwner;
 
 public interface RestoOwnerDAO {
 	

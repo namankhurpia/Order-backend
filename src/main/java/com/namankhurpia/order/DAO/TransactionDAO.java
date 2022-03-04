@@ -2,7 +2,7 @@ package com.namankhurpia.order.DAO;
 
 import java.util.List;
 
-import com.namankhurpia.order.model.Transaction;
+import com.namankhurpia.order.model.txn.Transaction;
 
 public interface TransactionDAO {
 

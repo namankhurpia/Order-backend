@@ -3,7 +3,7 @@ package com.namankhurpia.order.utils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.namankhurpia.order.model.RestoOwner;
+import com.namankhurpia.order.model.txn.RestoOwner;
 import com.namankhurpia.order.repos.RestoOwnerRepo;
 
 @Service

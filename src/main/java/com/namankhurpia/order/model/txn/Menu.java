@@ -1,4 +1,4 @@
-package com.namankhurpia.order.model;
+package com.namankhurpia.order.model.txn;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -38,15 +38,18 @@ public class Menu {
 	public boolean isavailable;
 	
 	@Column
+	public int spicelevel;
+	
+	
+	@Column
 	public String ext1;
 	
 	public Menu() {
 		
 	}
-	
 
 	public Menu(int itemid, String dishcuisine, String dishname, String dishdesc, int dishprice, boolean dishveg,
-			int dishbelongresto, boolean isavailable, String ext1) {
+			int dishbelongresto, boolean isavailable, int spicelevel, String ext1) {
 		super();
 		this.itemid = itemid;
 		this.dishcuisine = dishcuisine;
@@ -56,19 +59,9 @@ public class Menu {
 		this.dishveg = dishveg;
 		this.dishbelongresto = dishbelongresto;
 		this.isavailable = isavailable;
+		this.spicelevel = spicelevel;
 		this.ext1 = ext1;
 	}
-
-
-	public boolean isIsavailable() {
-		return isavailable;
-	}
-
-
-	public void setIsavailable(boolean isavailable) {
-		this.isavailable = isavailable;
-	}
-
 
 	public int getItemid() {
 		return itemid;
@@ -126,7 +119,22 @@ public class Menu {
 		this.dishbelongresto = dishbelongresto;
 	}
 
-	
+	public boolean isIsavailable() {
+		return isavailable;
+	}
+
+	public void setIsavailable(boolean isavailable) {
+		this.isavailable = isavailable;
+	}
+
+	public int getSpicelevel() {
+		return spicelevel;
+	}
+
+	public void setSpicelevel(int spicelevel) {
+		this.spicelevel = spicelevel;
+	}
+
 	public String getExt1() {
 		return ext1;
 	}

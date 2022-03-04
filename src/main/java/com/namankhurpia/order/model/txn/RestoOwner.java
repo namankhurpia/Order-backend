@@ -1,4 +1,4 @@
-package com.namankhurpia.order.model;
+package com.namankhurpia.order.model.txn;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -40,24 +40,27 @@ public class RestoOwner {
 	@Column
 	public String restologourl;
 	
+	
+	@Column
+	public String datejoined;
+	
+	@Column
+	public String renewdate;
+	
+	@Column
+	public int isactivecode;
+	
+	@Column 
+	public int planactive;
+	
+	@Column 
+	public String gstin;
+	
 
 	public RestoOwner() {
 		
 	}
-	
-	public RestoOwner(int restoid, String username, String nameofresto, String address, String gps, String phoneno,
-			String email, int restonooftable, String restologourl) {
-		super();
-		this.restoid = restoid;
-		this.username = username;
-		this.nameofresto = nameofresto;
-		this.address = address;
-		this.gps = gps;
-		this.phoneno = phoneno;
-		this.email = email;
-		this.restonooftable = restonooftable;
-		this.restologourl = restologourl;
-	}
+
 
 	public int getRestoid() {
 		return restoid;
@@ -148,12 +151,79 @@ public class RestoOwner {
 		this.restologourl = restologourl;
 	}
 
-	@Override
-	public String toString() {
-		return "RestoOwner [restoid=" + restoid + ", username=" + username + ", nameofresto=" + nameofresto
-				+ ", address=" + address + ", gps=" + gps + ", phoneno=" + phoneno + ", email=" + email
-				+ ", restonooftable=" + restonooftable + ", restologourl=" + restologourl + "]";
+
+	public String getDatejoined() {
+		return datejoined;
 	}
+
+
+	public void setDatejoined(String datejoined) {
+		this.datejoined = datejoined;
+	}
+
+
+	public String getRenewdate() {
+		return renewdate;
+	}
+
+
+	public void setRenewdate(String renewdate) {
+		this.renewdate = renewdate;
+	}
+
+
+	public int getIsactivecode() {
+		return isactivecode;
+	}
+
+
+	public void setIsactivecode(int isactivecode) {
+		this.isactivecode = isactivecode;
+	}
+
+
+	public int getPlanactive() {
+		return planactive;
+	}
+
+
+	public void setPlanactive(int planactive) {
+		this.planactive = planactive;
+	}
+
+
+	public String getGstin() {
+		return gstin;
+	}
+
+
+	public void setGstin(String gstin) {
+		this.gstin = gstin;
+	}
+
+
+	public RestoOwner(int restoid, String username, String nameofresto, String address, String gps, String phoneno,
+			String email, int restonooftable, String restologourl, String datejoined, String renewdate,
+			int isactivecode, int planactive, String gstin) {
+		super();
+		this.restoid = restoid;
+		this.username = username;
+		this.nameofresto = nameofresto;
+		this.address = address;
+		this.gps = gps;
+		this.phoneno = phoneno;
+		this.email = email;
+		this.restonooftable = restonooftable;
+		this.restologourl = restologourl;
+		this.datejoined = datejoined;
+		this.renewdate = renewdate;
+		this.isactivecode = isactivecode;
+		this.planactive = planactive;
+		this.gstin = gstin;
+	}
+	
+	
+
 	
 	
 

@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.namankhurpia.order.DAO.MenuDAO;
-import com.namankhurpia.order.model.Menu;
+import com.namankhurpia.order.model.txn.Menu;
 
 @Component
 public class MenuServiceImpl implements MenuService{

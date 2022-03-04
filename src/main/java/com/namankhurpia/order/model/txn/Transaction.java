@@ -1,4 +1,4 @@
-package com.namankhurpia.order.model;
+package com.namankhurpia.order.model.txn;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

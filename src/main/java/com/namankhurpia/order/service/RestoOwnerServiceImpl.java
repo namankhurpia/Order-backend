@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.namankhurpia.order.DAO.RestoOwnerDAO;
-import com.namankhurpia.order.model.RestoOwner;
+import com.namankhurpia.order.model.txn.RestoOwner;
 import com.namankhurpia.order.utils.AES256;
 import com.namankhurpia.order.utils.Validators;
 

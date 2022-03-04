@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
-import com.namankhurpia.order.model.Transaction;
+import com.namankhurpia.order.model.txn.Transaction;
 
 @Repository
 public interface TransactionRepo extends JpaRepository<Transaction , Integer>  {
