@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.namankhurpia.order.model.txn.RestoCuisineDetails;
-import com.namankhurpia.order.model.txn.RestoOwner;
 import com.namankhurpia.order.service.RestoCuisineDetailService;
 
 @CrossOrigin(origins = "*", allowedHeaders = "*")
