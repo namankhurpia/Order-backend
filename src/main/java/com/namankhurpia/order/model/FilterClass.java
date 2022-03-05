@@ -1,4 +1,4 @@
-package com.namankhurpia.order.DAO;
+package com.namankhurpia.order.model;
 
 public class FilterClass {
 	
