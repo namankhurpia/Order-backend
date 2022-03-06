@@ -2,15 +2,15 @@ package com.namankhurpia.order.service;
 
 import java.util.List;
 
-import com.namankhurpia.order.model.txn.RestoCuisineDetails;
+import com.namankhurpia.order.model.txn.RestoCuisineDetail;
 
 public interface RestoCuisineDetailService {
 	
-	List<RestoCuisineDetails> getAllCuisineFromRestoId(int restoid);
+	List<RestoCuisineDetail> getAllCuisineFromRestoId(int restoid);
 	
-	RestoCuisineDetails AddCuisineWithRestoid(RestoCuisineDetails restoCuisineObj);
+	RestoCuisineDetail AddCuisineWithRestoid(RestoCuisineDetail restoCuisineObj);
 	
-	void deleteCuisine(RestoCuisineDetails restoCuisineObj);
+	void deleteCuisine(RestoCuisineDetail restoCuisineObj);
 
 
 }

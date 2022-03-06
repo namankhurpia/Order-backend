@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.namankhurpia.order.model.txn.RestoCuisineDetails;
+import com.namankhurpia.order.model.txn.RestoCuisineDetail;
 import com.namankhurpia.order.service.RestoCuisineDetailService;
 
 @CrossOrigin(origins = "*", allowedHeaders = "*")
@@ -21,19 +21,19 @@ public class CuisineController {
 	RestoCuisineDetailService cuisineService;
 	
 	@GetMapping("/getCuisine/{restoid}")
-	public List<RestoCuisineDetails> getAllCuisineFromRestoId (@PathVariable int restoid)
+	public List<RestoCuisineDetail> getAllCuisineFromRestoId (@PathVariable int restoid)
 	{
 		return cuisineService.getAllCuisineFromRestoId(restoid);
 	}
 	
 	@PostMapping("/addcuisine")
-	public RestoCuisineDetails save(@RequestBody RestoCuisineDetails cuisineObj)
+	public RestoCuisineDetail save(@RequestBody RestoCuisineDetail cuisineObj)
 	{
 		return cuisineService.AddCuisineWithRestoid(cuisineObj);
 	}
 	
 	@PostMapping("/deletecuisine")
-	public String delete(@RequestBody RestoCuisineDetails cuisineObj)
+	public String delete(@RequestBody RestoCuisineDetail cuisineObj)
 	{
 		cuisineService.deleteCuisine(cuisineObj);
 		return "Cuisine:"+ cuisineObj.getCuisine()+" deleted with Restoid id:"+cuisineObj.getRestoid();

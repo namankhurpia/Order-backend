@@ -9,7 +9,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "restocuisinedetails")
-public class RestoCuisineDetails {
+public class RestoCuisineDetail {
 	
 	@Id
 	@Column
@@ -22,11 +22,12 @@ public class RestoCuisineDetails {
 	@Column
 	public String cuisine;
 	
-	public RestoCuisineDetails() {
+	public RestoCuisineDetail() {
 		
 	}
+	
 
-	public RestoCuisineDetails(long cuisineid, int restoid, String cuisine) {
+	public RestoCuisineDetail(long cuisineid, int restoid, String cuisine) {
 		super();
 		this.cuisineid = cuisineid;
 		this.restoid = restoid;

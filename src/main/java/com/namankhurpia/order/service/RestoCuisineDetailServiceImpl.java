@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.namankhurpia.order.DAO.RestoCuisineDetailDAO;
-import com.namankhurpia.order.model.txn.RestoCuisineDetails;
+import com.namankhurpia.order.model.txn.RestoCuisineDetail;
 
 @Service
 public class RestoCuisineDetailServiceImpl implements RestoCuisineDetailService{
@@ -15,17 +15,17 @@ public class RestoCuisineDetailServiceImpl implements RestoCuisineDetailService{
 	RestoCuisineDetailDAO cuisineDao;
 
 	@Override
-	public List<RestoCuisineDetails> getAllCuisineFromRestoId(int restoid) {
+	public List<RestoCuisineDetail> getAllCuisineFromRestoId(int restoid) {
 		return cuisineDao.getAllCuisineFromRestoId(restoid);
 	}
 
 	@Override
-	public RestoCuisineDetails AddCuisineWithRestoid(RestoCuisineDetails restoCuisineObj) {
+	public RestoCuisineDetail AddCuisineWithRestoid(RestoCuisineDetail restoCuisineObj) {
 		return cuisineDao.AddCuisineWithRestoid(restoCuisineObj);
 	}
 
 	@Override
-	public void deleteCuisine(RestoCuisineDetails restoCuisineObj) {
+	public void deleteCuisine(RestoCuisineDetail restoCuisineObj) {
 		cuisineDao.deleteCuisine(restoCuisineObj);
 		
 	}
