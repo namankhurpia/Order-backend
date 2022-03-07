@@ -10,8 +10,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.namankhurpia.order.DAO.RestoOwnerDAO;
+import com.namankhurpia.order.model.txn.Renew;
 import com.namankhurpia.order.model.txn.RestoOwner;
 import com.namankhurpia.order.utils.AES256;
+import com.namankhurpia.order.utils.DateTime;
 import com.namankhurpia.order.utils.Validators;
 
 @Service
@@ -25,6 +27,12 @@ public class RestoOwnerServiceImpl implements RestoOwnerService {
 	
 	@Autowired
 	private Validators validators;
+	
+	@Autowired
+	private DateTime datetime;
+	
+	@Autowired
+	private RenewService renewservice;
 
 	@Transactional
 	@Override
@@ -51,6 +59,9 @@ public class RestoOwnerServiceImpl implements RestoOwnerService {
 		}
 		else
 		{
+			restoowner_obj.setDatejoined(datetime.getTodaysDateMonthYearTime());
+			//add a renew table entry
+			renewservice.save(new Renew(restoowner_obj.getRestoid(),datetime.get30daysfromtodaysdate(), datetime.getTodaysDateMonthYearTime(), 1001 , 101 ) );
 			return restoownerdao.save(restoowner_obj);
 		}
 		

@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.namankhurpia.order.model.txn.RestoOwner;
 import com.namankhurpia.order.service.RestoOwnerService;
+import com.namankhurpia.order.utils.DateTime;
 
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
@@ -21,9 +22,12 @@ public class RestoOwnerController {
 	@Autowired
 	private RestoOwnerService restoownerservice;
 	
+	@Autowired
+	DateTime date;
+	
 	@GetMapping("/")
 	public String gethome() {
-		return "<h1>HOME PAGE</h1>";
+		return "<h1>HOME PAGE</h1>"+date.get30daysfromtodaysdate();
 	}
 	
 	@GetMapping("/getall")
